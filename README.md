@@ -1,4 +1,4 @@
-<img width="80" height="80" align="left" alt="Pioneer Icon" src="assets/icon.png">
+<img width="80" height="80" align="left" alt="Pioneer Icon" src="fastlane/metadata/android/en-US/images/icon.png">
 
 # Pioneer
 
@@ -14,6 +14,6 @@
 # Screenshots
 
 <p>
-	<img width=200 alt="screenshot_1" src="assets/screenshot_light.png">
-	<img width=200 alt="screenshot_2" src="assets/screenshot_dark.png">
+	<img width=200 alt="screenshot_1" src="fastlane/metadata/android/en-US/images/screenshot_light.png">
+	<img width=200 alt="screenshot_2" src="fastlane/metadata/android/en-US/images/screenshot_dark.png">
 </p>
