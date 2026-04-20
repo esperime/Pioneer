@@ -1,4 +1,4 @@
-<img align="left" alt"Pioneer Icon" src="assets/icon.png">
+<img width="80" height="80" align="left" alt"Pioneer Icon" src="assets/icon.png">
 
 # Pioneer
 
@@ -13,5 +13,5 @@
 
 # Screenshots
 
-<img width=200 alt="screenshot_1" src="assets/screenshot_light">
-<img width=200 alt="screenshot_2" src="assets/screenshot_dark">
+<img width=200 alt="screenshot_1" src="assets/screenshot_light.png">
+<img width=200 alt="screenshot_2" src="assets/screenshot_dark.png">
