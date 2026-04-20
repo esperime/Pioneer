@@ -13,5 +13,7 @@
 
 # Screenshots
 
-<img width=200 alt="screenshot_1" src="assets/screenshot_light.png">
-<img width=200 alt="screenshot_2" src="assets/screenshot_dark.png">
+<p>
+	<img width=200 alt="screenshot_1" src="assets/screenshot_light.png">
+	<img width=200 alt="screenshot_2" src="assets/screenshot_dark.png">
+</p>
