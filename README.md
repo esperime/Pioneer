@@ -14,6 +14,6 @@
 # Screenshots
 
 <p>
-	<img width=200 alt="screenshot_1" src="fastlane/metadata/android/en-US/images/screenshot_light.png">
-	<img width=200 alt="screenshot_2" src="fastlane/metadata/android/en-US/images/screenshot_dark.png">
+	<img width=200 alt="screenshot_1" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_light.png">
+	<img width=200 alt="screenshot_2" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_dark.png">
 </p>
