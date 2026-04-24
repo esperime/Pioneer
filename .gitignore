@@ -18,3 +18,4 @@ output.json
 *.jks
 *.keystore
 google-services.json
+gradle.properties
