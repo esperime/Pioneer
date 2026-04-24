@@ -12,6 +12,22 @@ android {
         }
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("pioneer.jks")
+            storePassword = project.findProperty("STORE_PASSWORD") as String
+            keyAlias = project.findProperty("KEY_ALIAS") as String
+            keyPassword = project.findProperty("KEY_PASSWORD") as String
+        }
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("release")
+        }
+    }
+
     defaultConfig {
         applicationId = "com.ki_bun.pioneer"
         minSdk = 24
