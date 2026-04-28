@@ -38,7 +38,7 @@ fun validateTotal(input: Int?, count: String) {
     } else {
         if (input.toString().isEmpty()) {
             totalWarning = ""
-        } else if (count.isNotEmpty()) {
+        } else if (count.isNotEmpty() && count.toIntOrNull() != null) {
             input.let {
                 totalWarning = if (it < count.toInt()) {
                     "Must be empty or greater than progress"
