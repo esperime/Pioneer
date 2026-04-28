@@ -159,7 +159,7 @@ fun EditDialog(
                             supportingText = {
                                 Text(
                                     text = totalWarning,
-                                    color = MaterialTheme.colorScheme.error,
+                                    color = if (newTotal == null) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.error,
                                     fontSize = 12.sp,
                                     textAlign = TextAlign.End,
                                     modifier = Modifier.fillMaxWidth()
