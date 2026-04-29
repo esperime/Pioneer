@@ -1,3 +1,5 @@
+val hasSigning = project.hasProperty("STORE_PASSWORD") && project.hasProperty("KEY_ALIAS") && project.hasProperty("KEY_PASSWORD")
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -18,19 +20,24 @@ android {
 	}
 
 	signingConfigs {
-        create("release") {
-            storeFile = file("pioneer.jks")
-            storePassword = project.findProperty("STORE_PASSWORD") as String
-            keyAlias = project.findProperty("KEY_ALIAS") as String
-            keyPassword = project.findProperty("KEY_PASSWORD") as String
-        }
-    }
+		if (hasSigning) {
+			create("release") {
+				storeFile = file("pioneer.jks")
+				storePassword = project.findProperty("STORE_PASSWORD") as String
+				keyAlias = project.findProperty("KEY_ALIAS") as String
+				keyPassword = project.findProperty("KEY_PASSWORD") as String
+			}
+		}
+	}
 
     buildTypes {
         release {
             isMinifyEnabled = false
+			if (hasSigning) {
             signingConfig = signingConfigs.getByName("release")
-        }
+			}
+		}
+
     }
 
     defaultConfig {
