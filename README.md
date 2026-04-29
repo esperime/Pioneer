@@ -5,10 +5,9 @@
 <p align="center"><b>Pioneer</b> is an open source tool to keep track of progress in an efficient way than using a notepad. Whether you are reading a book, .PDF, .EPUB, watching playlists, anime episodes, manga chapters, or anything else with a progress, Pioneer will act as an inventory to manage them to avoid forgetting what you have started.</p>
 
 # ⬇️ Installation 
-
-<a href="https://github.com/ki-bun/Pioneer/releases">
-	<img src="https://raw.githubusercontent.com/rubenpgrady/get-it-on-github/refs/heads/main/get-it-on-github.png" alt="Get it on GitHub" height="96" />
-</a>
+<p align="center">
+<a href="https://github.com/ki-bun/Pioneer/releases"><img src="https://raw.githubusercontent.com/rubenpgrady/get-it-on-github/refs/heads/main/get-it-on-github.png" alt="Get it on GitHub" height="80" /></a><a href="https://f-droid.org/packages/com.ki_bun.pioneer"><img src="https://f-droid.org/badge/get-it-on.png"alt="Get it on F-Droid"height="80"></a>
+</p>
 
 # ✨ Features
 
