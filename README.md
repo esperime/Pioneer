@@ -11,11 +11,19 @@
 
 # ✨ Features
 
-- Material 3 dynamic theme
-- Support for optional maximum value
-- Option to edit progress
-- Option to delete progress
-
+- **Design**
+	- Material 3 dynamic theme
+	- Vertical card-based view
+- **Functionality**
+	- Support for optional maximum value if you are uncertain about its total
+	- Option to edit and delete progress
+ 	- Optional description
+	- Input error handling 
+- **Privacy**
+	- 100% offline, no internet connection required
+	- No sign up or account needed
+ 	- Open source and licensed with GPLv3
+ 
 # 📸 Screenshots
 
 <p align="center">
