@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PioneerTheme {
-                HomeScreen(progressViewModel)
+                MyAppNavHost(progressViewModel)
             }
         }
     }
