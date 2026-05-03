@@ -108,7 +108,11 @@ class MainActivity : ComponentActivity() {
                                                 onClick = { selectedIndex = 0 },
                                             ) {
                                                 Icon(
-                                                    painter = painterResource(id = R.drawable.home_24px),
+                                                    painter = if (selectedIndex == 0) {
+                                                        painterResource(id = R.drawable.filled_home_24px)
+                                                    } else {
+                                                        painterResource(id = R.drawable.home_24px)
+                                                    },
                                                     contentDescription = "Home"
                                                 )
                                             }
@@ -127,7 +131,11 @@ class MainActivity : ComponentActivity() {
                                             onClick = { selectedIndex = 1 }
                                         ) {
                                                 Icon(
-                                                    painter = painterResource(id = R.drawable.settings_24px),
+                                                    painter = if (selectedIndex == 1) {
+                                                        painterResource(id = R.drawable.filled_settings_24px)
+                                                    } else {
+                                                        painterResource(id = R.drawable.settings_24px)
+                                                    },
                                                     contentDescription = "Settings"
                                                 )
                                             }
