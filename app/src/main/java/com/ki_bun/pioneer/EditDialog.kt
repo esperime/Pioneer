@@ -33,12 +33,11 @@ import com.ki_bun.pioneer.util.totalWarning
 import com.ki_bun.pioneer.util.validateCount
 import com.ki_bun.pioneer.util.validateTotal
 
-var showEditDialog by mutableStateOf(false)
-
 @Composable
 fun EditDialog(
     progressList: Item,
-    onUpdate: (Item) -> Unit
+    onUpdate: (Item) -> Unit,
+    onDismiss: () -> Unit
 ) {
     var inputTitle by remember {mutableStateOf(progressList.title)}
     var inputCount by remember {mutableStateOf(progressList.progress.toString())}
@@ -54,7 +53,7 @@ fun EditDialog(
 
     Dialog(
         onDismissRequest = {
-            showEditDialog = false
+            onDismiss()
         }) {
         Surface(
             modifier = Modifier
@@ -173,7 +172,7 @@ fun EditDialog(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End
                 ) {
-                    TextButton(onClick = { showEditDialog = false }) {
+                    TextButton(onClick = { onDismiss() }) {
                         Text("Dismiss")
                     }
                     TextButton(
@@ -190,7 +189,7 @@ fun EditDialog(
                                 total = if (inputTotal != progressList.total.toString()) newTotal else progressList.total
                             )
                             onUpdate(newItem)
-                            showEditDialog = false
+                            onDismiss()
                         }) {
                         Text("Update")
                     }
