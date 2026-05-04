@@ -1,0 +1,4 @@
+- New settings screen
+- Bottom app bar with home and settings icon
+- App theme options
+- Code cleanup and bug fixes
