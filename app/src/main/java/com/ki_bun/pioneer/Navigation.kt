@@ -30,9 +30,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.ki_bun.pioneer.ui.theme.ThemeMode
 
 @Composable
-fun MyAppNavHost(progressViewModel: ProgressViewModel) {
+fun MyAppNavHost(progressViewModel: ProgressViewModel, themeMode: ThemeMode, onThemeModeChange: (ThemeMode) -> Unit) {
 
     val navController = rememberNavController()
     var selectedIndex by remember { mutableIntStateOf(0) }
@@ -127,7 +128,7 @@ fun MyAppNavHost(progressViewModel: ProgressViewModel) {
                 HomeScreen(progressViewModel)
             }
             composable("settings") {
-                SettingsScreen()
+                SettingsScreen(onThemeModeChange = onThemeModeChange, themeMode = themeMode)
             }
         }
     }
