@@ -4,6 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.DropdownMenu
@@ -29,7 +30,7 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode)
     val uriHandler = LocalUriHandler.current
     var expanded by remember { mutableStateOf(false) }
 
-        Column(modifier = Modifier.fillMaxSize().padding(start = 30.dp, top = 30.dp)) {
+        Column(modifier = Modifier.fillMaxSize().padding(all = 30.dp)) {
             Text(
                 text = "Theme",
                 color = MaterialTheme.colorScheme.primary,
@@ -64,7 +65,7 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode)
                         }
                     )
                 }
-                Column {
+                Column(modifier = Modifier.fillMaxWidth()) {
                     Text(
                         text = "App theme",
                         fontSize = 18.sp
@@ -98,7 +99,7 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode)
                     uriHandler.openUri("https://github.com/ki-bun/Pioneer")
                 }
             ) {
-                Column {
+                Column(modifier = Modifier.fillMaxWidth()) {
                     Text(
                         text = "Source Code",
                         fontSize = 18.sp
@@ -116,7 +117,7 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode)
                     uriHandler.openUri("https://github.com/ki-bun/Pioneer/releases")
                 }
             ) {
-                Column {
+                Column(modifier = Modifier.fillMaxWidth()) {
                     Text(
                         text = "Releases",
                         fontSize = 18.sp
