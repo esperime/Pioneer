@@ -66,7 +66,7 @@ fun HomeScreen(progressViewModel: ProgressViewModel) {
                 )
             }
             item {
-                Spacer(modifier = Modifier.height(90.dp))
+                Spacer(modifier = Modifier.height(100.dp))
             }
         }
         if (showEditDialog && selectedItem != null) {
