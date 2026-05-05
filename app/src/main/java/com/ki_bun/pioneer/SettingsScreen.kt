@@ -108,7 +108,7 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode,
             }
             Spacer(modifier = Modifier.height(25.dp))
             Text(
-                text = "Links",
+                text = "Backup",
                 color = MaterialTheme.colorScheme.primary,
                 fontWeight = FontWeight.Bold
             )
