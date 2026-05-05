@@ -19,6 +19,8 @@
 	- Option to edit and delete progress
  	- Optional description
 	- Input error handling 
+	- Import and export to CSV
+	- Option to change app theme
 - **Privacy**
 	- 100% offline, no internet connection required
 	- No sign up or account needed
