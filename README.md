@@ -26,7 +26,16 @@
  
 # 📸 Screenshots
 
-<p align="center">
-	<img width=200 alt="screenshot_1" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_light.png">
-	<img width=200 alt="screenshot_2" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_dark.png">
-</p>
+<h2 align="center">Light theme ☀︎</h2>
+
+| Home screen | Add dialog | Settings screen |
+| --- | --- | --- |
+| <img width=200 alt="screenshot_1" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_1.png"> | <img width=200 alt="screenshot_3" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_3.png"> | <img width=200 alt="screenshot_5" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_5.png">
+
+<h2 align="center">Dark theme ⏾</h2>
+
+| Home screen | Add dialog | Settings screen |
+| --- | --- | --- |
+| <img width=200 alt="screenshot_2" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_2.png"> | <img width=200 alt="screenshot_4" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_4.png"> | <img width=200 alt="screenshot_6" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_6.png">
+
+**Note**: The colors vary depending on device's system colors for Android 12 and newer.
