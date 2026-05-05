@@ -128,7 +128,7 @@ fun MyAppNavHost(progressViewModel: ProgressViewModel, themeMode: ThemeMode, onT
                 HomeScreen(progressViewModel)
             }
             composable("settings") {
-                SettingsScreen(onThemeModeChange = onThemeModeChange, themeMode = themeMode)
+                SettingsScreen(onThemeModeChange = onThemeModeChange, themeMode = themeMode, progressViewModel = progressViewModel)
             }
         }
     }

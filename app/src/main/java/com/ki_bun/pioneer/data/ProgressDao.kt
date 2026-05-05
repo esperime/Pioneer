@@ -23,4 +23,6 @@ interface ItemDao {
     @Query("SELECT * from items")
     fun getAllItems(): Flow<List<Item>>
 
+    @Query("SELECT * FROM items")
+    suspend fun getAllItemsOnce(): List<Item>
 }

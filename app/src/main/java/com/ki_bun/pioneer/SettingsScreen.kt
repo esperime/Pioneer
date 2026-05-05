@@ -1,5 +1,7 @@
 package com.ki_bun.pioneer
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -18,6 +20,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -25,10 +28,19 @@ import androidx.compose.ui.unit.sp
 import com.ki_bun.pioneer.ui.theme.ThemeMode
 
 @Composable
-fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode) {
+fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode, progressViewModel: ProgressViewModel) {
 
     val uriHandler = LocalUriHandler.current
     var expanded by remember { mutableStateOf(false) }
+    val context = LocalContext.current
+
+    val createFileLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.CreateDocument("text/csv")
+    ) { uri ->
+        if (uri != null) {
+            progressViewModel.exportToUri(context, uri)
+        }
+    }
 
         Column(modifier = Modifier.fillMaxSize().padding(all = 30.dp)) {
             Text(
@@ -82,6 +94,30 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode)
                                 "Light"
                             }
                         },
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontSize = 14.sp
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(25.dp))
+            Text(
+                text = "Links",
+                color = MaterialTheme.colorScheme.primary,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.height(25.dp))
+            Surface(
+                modifier = Modifier.clickable {
+                    createFileLauncher.launch("pioneer_export.csv")
+                }
+            ) {
+                Column(modifier = Modifier.fillMaxWidth()) {
+                    Text(
+                        text = "Export to CSV",
+                        fontSize = 18.sp
+                    )
+                    Text(
+                        text = "Backup your data",
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         fontSize = 14.sp
                     )
