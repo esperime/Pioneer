@@ -49,146 +49,146 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode,
         }
     )
 
-        Column(modifier = Modifier.fillMaxSize().padding(all = 30.dp)) {
-            Text(
-                text = "Theme",
-                color = MaterialTheme.colorScheme.primary,
-                fontWeight = FontWeight.Bold
-            )
-            Spacer(modifier = Modifier.height(25.dp))
-            Surface(modifier = Modifier.clickable {
-                expanded = !expanded
-            }) {
-                DropdownMenu(
-                    expanded = expanded,
-                    onDismissRequest = { expanded = false }) {
-                    DropdownMenuItem(
-                        text = { Text("Auto") },
-                        onClick = {
-                            onThemeModeChange(ThemeMode.AUTO)
-                            expanded = false
+    Column(modifier = Modifier.fillMaxSize().padding(all = 30.dp)) {
+        Text(
+            text = "Theme",
+            color = MaterialTheme.colorScheme.primary,
+            fontWeight = FontWeight.Bold
+        )
+        Spacer(modifier = Modifier.height(25.dp))
+        Surface(modifier = Modifier.clickable {
+            expanded = !expanded
+        }) {
+            DropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }) {
+                DropdownMenuItem(
+                    text = { Text("Auto") },
+                    onClick = {
+                        onThemeModeChange(ThemeMode.AUTO)
+                        expanded = false
+                    }
+                )
+                DropdownMenuItem(
+                    text = { Text("Light") },
+                    onClick = {
+                        onThemeModeChange(ThemeMode.LIGHT)
+                        expanded = false
+                    }
+                )
+                DropdownMenuItem(
+                    text = { Text("Dark") },
+                    onClick = {
+                        onThemeModeChange(ThemeMode.DARK)
+                        expanded = false
+                    }
+                )
+            }
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Text(
+                    text = "App theme",
+                    fontSize = 18.sp
+                )
+                Text(
+                    text = when (themeMode) {
+                        ThemeMode.AUTO -> {
+                            "Auto"
                         }
-                    )
-                    DropdownMenuItem(
-                        text = { Text("Light") },
-                        onClick = {
-                            onThemeModeChange(ThemeMode.LIGHT)
-                            expanded = false
+                        ThemeMode.DARK -> {
+                            "Dark"
                         }
-                    )
-                    DropdownMenuItem(
-                        text = { Text("Dark") },
-                        onClick = {
-                            onThemeModeChange(ThemeMode.DARK)
-                            expanded = false
+                        else -> {
+                            "Light"
                         }
-                    )
-                }
-                Column(modifier = Modifier.fillMaxWidth()) {
-                    Text(
-                        text = "App theme",
-                        fontSize = 18.sp
-                    )
-                    Text(
-                        text = when (themeMode) {
-                            ThemeMode.AUTO -> {
-                                "Auto"
-                            }
-                            ThemeMode.DARK -> {
-                                "Dark"
-                            }
-                            else -> {
-                                "Light"
-                            }
-                        },
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        fontSize = 14.sp
-                    )
-                }
-            }
-            Spacer(modifier = Modifier.height(25.dp))
-            Text(
-                text = "Backup",
-                color = MaterialTheme.colorScheme.primary,
-                fontWeight = FontWeight.Bold
-            )
-            Spacer(modifier = Modifier.height(25.dp))
-            Surface(
-                modifier = Modifier.clickable {
-                    createFileLauncher.launch("pioneer_export.csv")
-                }
-            ) {
-                Column(modifier = Modifier.fillMaxWidth()) {
-                    Text(
-                        text = "Export to CSV",
-                        fontSize = 18.sp
-                    )
-                    Text(
-                        text = "Backup your data",
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        fontSize = 14.sp
-                    )
-                }
-            }
-            Spacer(modifier = Modifier.height(25.dp))
-            Surface(
-                modifier = Modifier.clickable {
-                    openFileLauncher.launch(arrayOf("*/*"))
-                }
-            ) {
-                Column(modifier = Modifier.fillMaxWidth()) {
-                    Text(
-                        text = "Import from CSV",
-                        fontSize = 18.sp
-                    )
-                    Text(
-                        text = "Restore your data",
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        fontSize = 14.sp
-                    )
-                }
-            }
-            Spacer(modifier = Modifier.height(25.dp))
-            Text(
-                text = "Links",
-                color = MaterialTheme.colorScheme.primary,
-                fontWeight = FontWeight.Bold
-            )
-            Spacer(modifier = Modifier.height(25.dp))
-            Surface(
-                modifier = Modifier.clickable {
-                    uriHandler.openUri("https://github.com/ki-bun/Pioneer")
-                }
-            ) {
-                Column(modifier = Modifier.fillMaxWidth()) {
-                    Text(
-                        text = "Source Code",
-                        fontSize = 18.sp
-                    )
-                    Text(
-                        text = "https://github.com/ki-bun/Pioneer",
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        fontSize = 14.sp
-                    )
-                }
-            }
-            Spacer(modifier = Modifier.height(25.dp))
-            Surface(
-                modifier = Modifier.clickable {
-                    uriHandler.openUri("https://github.com/ki-bun/Pioneer/releases")
-                }
-            ) {
-                Column(modifier = Modifier.fillMaxWidth()) {
-                    Text(
-                        text = "Releases",
-                        fontSize = 18.sp
-                    )
-                    Text(
-                        text = "https://github.com/ki-bun/Pioneer/releases",
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        fontSize = 14.sp
-                    )
-                }
+                    },
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontSize = 14.sp
+                )
             }
         }
+        Spacer(modifier = Modifier.height(25.dp))
+        Text(
+            text = "Backup",
+            color = MaterialTheme.colorScheme.primary,
+            fontWeight = FontWeight.Bold
+        )
+        Spacer(modifier = Modifier.height(25.dp))
+        Surface(
+            modifier = Modifier.clickable {
+                createFileLauncher.launch("pioneer_export.csv")
+            }
+        ) {
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Text(
+                    text = "Export to CSV",
+                    fontSize = 18.sp
+                )
+                Text(
+                    text = "Backup your data",
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontSize = 14.sp
+                )
+            }
+        }
+        Spacer(modifier = Modifier.height(25.dp))
+        Surface(
+            modifier = Modifier.clickable {
+                openFileLauncher.launch(arrayOf("*/*"))
+            }
+        ) {
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Text(
+                    text = "Import from CSV",
+                    fontSize = 18.sp
+                )
+                Text(
+                    text = "Restore your data",
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontSize = 14.sp
+                )
+            }
+        }
+        Spacer(modifier = Modifier.height(25.dp))
+        Text(
+            text = "Links",
+            color = MaterialTheme.colorScheme.primary,
+            fontWeight = FontWeight.Bold
+        )
+        Spacer(modifier = Modifier.height(25.dp))
+        Surface(
+            modifier = Modifier.clickable {
+                uriHandler.openUri("https://github.com/ki-bun/Pioneer")
+            }
+        ) {
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Text(
+                    text = "Source Code",
+                    fontSize = 18.sp
+                )
+                Text(
+                    text = "https://github.com/ki-bun/Pioneer",
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontSize = 14.sp
+                )
+            }
+        }
+        Spacer(modifier = Modifier.height(25.dp))
+        Surface(
+            modifier = Modifier.clickable {
+                uriHandler.openUri("https://github.com/ki-bun/Pioneer/releases")
+            }
+        ) {
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Text(
+                    text = "Releases",
+                    fontSize = 18.sp
+                )
+                Text(
+                    text = "https://github.com/ki-bun/Pioneer/releases",
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontSize = 14.sp
+                )
+            }
+        }
+    }
 }
