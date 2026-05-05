@@ -4,10 +4,9 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -50,13 +49,13 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode,
         }
     )
 
-    Column(modifier = Modifier.fillMaxSize().padding(all = 30.dp)) {
+    Column(modifier = Modifier.fillMaxSize().padding(top = 30.dp)) {
         Text(
             text = "Theme",
             color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.offset(x = 30.dp)
         )
-        Spacer(modifier = Modifier.height(25.dp))
         Surface(modifier = Modifier.clickable {
             expanded = !expanded
         }) {
@@ -85,10 +84,11 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode,
                     }
                 )
             }
-            Column(modifier = Modifier.fillMaxWidth()) {
+            Column(modifier = Modifier.fillMaxWidth().padding(vertical = 15.dp)) {
                 Text(
                     text = "App theme",
-                    fontSize = 18.sp
+                    fontSize = 18.sp,
+                    modifier = Modifier.offset(x = 30.dp)
                 )
                 Text(
                     text = when (themeMode) {
@@ -103,91 +103,96 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode,
                         }
                     },
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    fontSize = 14.sp
+                    fontSize = 14.sp,
+                    modifier = Modifier.offset(x = 30.dp)
                 )
             }
         }
-        Spacer(modifier = Modifier.height(25.dp))
         Text(
             text = "Backup",
             color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.offset(x = 30.dp)
         )
-        Spacer(modifier = Modifier.height(25.dp))
         Surface(
             modifier = Modifier.clickable {
                 createFileLauncher.launch("pioneer_export.csv")
             }
         ) {
-            Column(modifier = Modifier.fillMaxWidth()) {
+            Column(modifier = Modifier.fillMaxWidth().padding(vertical = 15.dp)) {
                 Text(
                     text = "Export to CSV",
-                    fontSize = 18.sp
+                    fontSize = 18.sp,
+                    modifier = Modifier.offset(x = 30.dp)
                 )
                 Text(
                     text = "Backup your data",
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    fontSize = 14.sp
+                    fontSize = 14.sp,
+                    modifier = Modifier.offset(x = 30.dp)
                 )
             }
         }
-        Spacer(modifier = Modifier.height(25.dp))
         Surface(
             modifier = Modifier.clickable {
                 openFileLauncher.launch(arrayOf("*/*"))
             }
         ) {
-            Column(modifier = Modifier.fillMaxWidth()) {
+            Column(modifier = Modifier.fillMaxWidth().padding(vertical = 15.dp)) {
                 Text(
                     text = "Import from CSV",
-                    fontSize = 18.sp
+                    fontSize = 18.sp,
+                    modifier = Modifier.offset(x = 30.dp)
                 )
                 Text(
                     text = "Restore your data",
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    fontSize = 14.sp
+                    fontSize = 14.sp,
+                    modifier = Modifier.offset(x = 30.dp)
                 )
             }
         }
-        Spacer(modifier = Modifier.height(25.dp))
         Text(
             text = "Links",
             color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.offset(x = 30.dp)
         )
-        Spacer(modifier = Modifier.height(25.dp))
         Surface(
             modifier = Modifier.clickable {
                 uriHandler.openUri("https://github.com/ki-bun/Pioneer")
             }
         ) {
-            Column(modifier = Modifier.fillMaxWidth()) {
+            Column(modifier = Modifier.fillMaxWidth().padding(vertical = 15.dp)) {
                 Text(
                     text = "Source Code",
-                    fontSize = 18.sp
+                    fontSize = 18.sp,
+                    modifier = Modifier.offset(x = 30.dp)
                 )
                 Text(
                     text = "https://github.com/ki-bun/Pioneer",
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    fontSize = 14.sp
+                    fontSize = 14.sp,
+                    modifier = Modifier.offset(x = 30.dp)
                 )
             }
         }
-        Spacer(modifier = Modifier.height(25.dp))
         Surface(
             modifier = Modifier.clickable {
                 uriHandler.openUri("https://github.com/ki-bun/Pioneer/releases")
             }
         ) {
-            Column(modifier = Modifier.fillMaxWidth()) {
+            Column(modifier = Modifier.fillMaxWidth().padding(vertical = 15.dp)) {
                 Text(
                     text = "Releases",
-                    fontSize = 18.sp
+                    fontSize = 18.sp,
+                    modifier = Modifier.offset(x = 30.dp)
                 )
                 Text(
                     text = "https://github.com/ki-bun/Pioneer/releases",
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    fontSize = 14.sp
+                    fontSize = 14.sp,
+                    modifier = Modifier.offset(x = 30.dp)
                 )
             }
         }
