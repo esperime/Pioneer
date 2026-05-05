@@ -42,6 +42,13 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode,
         }
     }
 
+    val openFileLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.OpenDocument(),
+        onResult = { uri ->
+            uri?.let { progressViewModel.importFromCSV(context, it) }
+        }
+    )
+
         Column(modifier = Modifier.fillMaxSize().padding(all = 30.dp)) {
             Text(
                 text = "Theme",
@@ -118,6 +125,24 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode,
                     )
                     Text(
                         text = "Backup your data",
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontSize = 14.sp
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(25.dp))
+            Surface(
+                modifier = Modifier.clickable {
+                    openFileLauncher.launch(arrayOf("*/*"))
+                }
+            ) {
+                Column(modifier = Modifier.fillMaxWidth()) {
+                    Text(
+                        text = "Import from CSV",
+                        fontSize = 18.sp
+                    )
+                    Text(
+                        text = "Restore your data",
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         fontSize = 14.sp
                     )

@@ -25,4 +25,8 @@ interface ItemDao {
 
     @Query("SELECT * FROM items")
     suspend fun getAllItemsOnce(): List<Item>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(items: List<Item>)
+
 }

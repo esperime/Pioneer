@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.ki_bun.pioneer.data.Item
 import com.ki_bun.pioneer.data.ItemDao
 import com.ki_bun.pioneer.util.CSVExport
+import com.ki_bun.pioneer.util.parseCSV
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -63,6 +64,22 @@ class ProgressViewModel(private val itemDao: ItemDao) : ViewModel() {
             }
         }
     }
+
+    fun importFromCSV(context: Context, uri: Uri) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val csvText = context.contentResolver.openInputStream(uri)?.bufferedReader().use { it?.readText() }
+                csvText?.let {
+                    val items = parseCSV(it)
+                    // Insert all items into Room
+                    itemDao.insertAll(items)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
 }
 
 class ProgressViewModelFactory(private val itemDao: ItemDao) : ViewModelProvider.Factory {
