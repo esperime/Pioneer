@@ -1,4 +1,4 @@
-package com.ki_bun.pioneer
+package com.ki_bun.pioneer.data
 
 import android.content.Context
 import androidx.datastore.preferences.core.edit

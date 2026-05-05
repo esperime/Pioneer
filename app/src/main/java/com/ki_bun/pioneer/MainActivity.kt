@@ -13,8 +13,12 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.lifecycleScope
 import com.ki_bun.pioneer.data.AppDatabase
 import com.ki_bun.pioneer.data.ItemDao
+import com.ki_bun.pioneer.data.loadThemeMode
+import com.ki_bun.pioneer.data.saveThemeMode
 import com.ki_bun.pioneer.ui.theme.PioneerTheme
 import com.ki_bun.pioneer.ui.theme.ThemeMode
+import com.ki_bun.pioneer.viewmodel.ProgressViewModel
+import com.ki_bun.pioneer.viewmodel.ProgressViewModelFactory
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {

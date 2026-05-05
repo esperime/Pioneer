@@ -1,4 +1,4 @@
-package com.ki_bun.pioneer
+package com.ki_bun.pioneer.screens
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -25,6 +25,7 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ki_bun.pioneer.viewmodel.ProgressViewModel
 import com.ki_bun.pioneer.ui.theme.ThemeMode
 
 @Composable

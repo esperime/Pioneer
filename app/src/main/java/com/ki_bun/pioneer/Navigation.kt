@@ -30,7 +30,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.ki_bun.pioneer.screens.HomeScreen
+import com.ki_bun.pioneer.screens.SettingsScreen
 import com.ki_bun.pioneer.ui.theme.ThemeMode
+import com.ki_bun.pioneer.viewmodel.ProgressViewModel
 
 @Composable
 fun MyAppNavHost(progressViewModel: ProgressViewModel, themeMode: ThemeMode, onThemeModeChange: (ThemeMode) -> Unit) {
@@ -128,7 +131,11 @@ fun MyAppNavHost(progressViewModel: ProgressViewModel, themeMode: ThemeMode, onT
                 HomeScreen(progressViewModel)
             }
             composable("settings") {
-                SettingsScreen(onThemeModeChange = onThemeModeChange, themeMode = themeMode, progressViewModel = progressViewModel)
+                SettingsScreen(
+                    onThemeModeChange = onThemeModeChange,
+                    themeMode = themeMode,
+                    progressViewModel = progressViewModel
+                )
             }
         }
     }

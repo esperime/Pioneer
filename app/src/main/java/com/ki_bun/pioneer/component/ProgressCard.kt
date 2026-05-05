@@ -38,7 +38,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ki_bun.pioneer.ProgressViewModel
+import com.ki_bun.pioneer.viewmodel.ProgressViewModel
 import com.ki_bun.pioneer.R
 import com.ki_bun.pioneer.data.Item
 import com.ki_bun.pioneer.util.nullToString
