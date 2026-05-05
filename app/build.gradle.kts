@@ -93,5 +93,5 @@ dependencies {
     val nav_version = "2.9.8"
     implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation("androidx.datastore:datastore-preferences:1.2.1")
-
+    implementation("com.opencsv:opencsv:5.12.0")
 }
