@@ -77,15 +77,13 @@ fun EditDialog(
                     placeholder = { Text(text = "Enter title") },
                     singleLine = true,
                     supportingText = {
-                        if (inputTitle.isEmpty()) {
-                            Text(
-                                text = "Field cannot be empty",
-                                color = MaterialTheme.colorScheme.error,
-                                fontSize = 12.sp,
-                                textAlign = TextAlign.End,
-                                modifier = Modifier.fillMaxWidth()
-                            )
-                        }
+                        Text(
+                            text = if (inputTitle.isEmpty()) { "Field cannot be empty" } else "${inputTitle.length} / $maxTitle",
+                            color = if (inputTitle.isEmpty()) { MaterialTheme.colorScheme.error } else MaterialTheme.colorScheme.onSurfaceVariant,
+                            fontSize = 12.sp,
+                            textAlign = TextAlign.End,
+                            modifier = Modifier.fillMaxWidth()
+                        )
                     },
                     isError = inputTitle.isEmpty(),
                 )
