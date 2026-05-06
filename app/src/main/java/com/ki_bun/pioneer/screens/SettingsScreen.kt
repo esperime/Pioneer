@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ki_bun.pioneer.viewmodel.ProgressViewModel
@@ -61,7 +62,9 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode,
         }) {
             DropdownMenu(
                 expanded = expanded,
-                onDismissRequest = { expanded = false }) {
+                onDismissRequest = { expanded = false },
+                offset = DpOffset(x = (-30).dp, y = 0.dp)
+            ) {
                 DropdownMenuItem(
                     text = { Text("Auto") },
                     onClick = {
