@@ -42,6 +42,11 @@ import kotlinx.coroutines.flow.filter
 
 var showDialog by mutableStateOf(false)
 
+// Declared globally so it can also be used on EditDialog
+const val maxTitle = 70
+const val maxDescription = 100
+const val maxCount = 4
+
 @Composable
 fun InputDialog(progressViewModel: ProgressViewModel) {
 
@@ -53,10 +58,6 @@ fun InputDialog(progressViewModel: ProgressViewModel) {
     var inputDescription by remember {mutableStateOf("")}
     var inputTotal: String? by remember {mutableStateOf("")}
     var newTotal: Int? by remember {mutableStateOf(null)}
-
-    val maxTitle = 70
-    val maxDescription = 100
-    val maxCount = 4
 
     countWarning = "Field cannot be empty"
 

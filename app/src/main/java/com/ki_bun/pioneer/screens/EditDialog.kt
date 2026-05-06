@@ -45,10 +45,6 @@ fun EditDialog(
     var inputTotal: String by remember { mutableStateOf(progressList.total?.toString() ?: "") }
     var newTotal: Int? by remember { mutableStateOf(null) }
 
-    val maxTitle = 70
-    val maxDescription = 100
-    val maxCount = 4
-
     countWarning = ""
 
     Dialog(
