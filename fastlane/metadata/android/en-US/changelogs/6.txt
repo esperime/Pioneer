@@ -1,0 +1,3 @@
+- Fix status bar visibility
+- Fix dropdown menu alignment when changing app theme
+- Fix bug when inputting description
