@@ -50,11 +50,14 @@ fun validateTotal(input: Int?, count: String) {
         }
 }
 
-
+// If the value is null, it will show a question mark for the progress card to display
 fun nullToString(value: Int?): String {
     return value?.toString() ?: "?"
 }
 
+/* Checks if a number is numeric, this doesn't accept negative and decimal numbers and
+ other non-numeric characters,and will start from 0 onwards
+ */
 fun isNumeric(str: String): Boolean {
     return str.matches(Regex("^(0|[1-9]\\d*)$"))
 }

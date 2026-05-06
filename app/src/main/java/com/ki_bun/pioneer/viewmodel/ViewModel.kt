@@ -19,6 +19,7 @@ class ProgressViewModel(private val itemDao: ItemDao) : ViewModel() {
     private val _progressList = MutableStateFlow<List<Item>>(emptyList())
     val progressList: StateFlow<List<Item>> = _progressList
 
+    // Load all items on app start
     init {
         loadItems()
     }

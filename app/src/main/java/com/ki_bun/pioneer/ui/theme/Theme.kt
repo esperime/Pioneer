@@ -55,6 +55,10 @@ fun PioneerTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
+
+    /* Workaround for setting status bar icon color for API 24+,
+    because insetsController requires API 30+ and other options are deprecated
+     */
     val view = LocalView.current
     val window = (view.context as Activity).window
     val insetsController = WindowCompat.getInsetsController(window,view)

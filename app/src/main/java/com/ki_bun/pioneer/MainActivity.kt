@@ -46,6 +46,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
 
+            // Load selected theme first before loading the main application
             if (isThemeLoaded) {
                 PioneerTheme(themeMode = themeMode) {
                     MyAppNavHost(progressViewModel, themeMode = themeMode, onThemeModeChange = { selectedTheme ->

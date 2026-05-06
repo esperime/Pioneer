@@ -8,6 +8,7 @@ import com.ki_bun.pioneer.ui.theme.ThemeMode
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
+// Remembers the selected theme from settings
 val Context.dataStore by preferencesDataStore(name = "settings")
 val THEME_MODE_KEY = stringPreferencesKey("theme_mode_key")
 
