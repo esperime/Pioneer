@@ -91,10 +91,7 @@ fun EditDialog(
                 OutlinedTextField(
                     value = inputDescription,
                     singleLine = true,
-                    onValueChange = {
-                        inputDescription =
-                            if (it.length <= maxDescription && it.isNotEmpty()) it else ""
-                    },
+                    onValueChange = { if (it.length in 0..maxDescription) inputDescription = it },
                     supportingText = {
                         Text(
                             text = "${inputDescription.length} / $maxDescription",
