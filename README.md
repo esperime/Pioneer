@@ -2,7 +2,9 @@
 	<img width="200" height="200" alt="Pioneer Icon" src="fastlane/metadata/android/en-US/images/icon.png">
 </p>
 <h1 align="center">Pioneer</h1>
-<b>Pioneer</b> is an open source tool to keep track of progress in an efficient way than using a notepad. Whether you are reading a book, .PDF, .EPUB, watching playlists, anime episodes, manga chapters, or anything else with a progress, Pioneer will act as an inventory to manage them to avoid forgetting what you have started.
+<b>Pioneer</b> is an open source tool to keep track of progress in an efficient way. Whether you are reading a book, .pdf, .epub, watching playlists, anime episodes, manga chapters, or anything else, Pioneer will act as one inventory to manage them, without relying on several different services for each.
+<p></p>
+It is not just a tracker for watchlists, you can use it as a counter in general since it is optional to specify a maximum value, and also to keep track of a goal, for example, "I am <i>aiming</i> to finish 3 tasks today".
 
 # ⬇️ Installation 
 <p>
