@@ -42,24 +42,34 @@ import kotlinx.coroutines.flow.filter
 
 var showDialog by mutableStateOf(false)
 
-// Declared globally so it can also be used on EditDialog
+// Character limits
 const val maxTitle = 70
 const val maxDescription = 100
 const val maxCount = 4
 
+// InputDialog's behavior changes depending on the state of this variable
+var isEditing by mutableStateOf(false)
+
 @Composable
-fun InputDialog(progressViewModel: ProgressViewModel) {
+fun InputDialog(
+    progressViewModel: ProgressViewModel,
+    progressList: Item?,
+    onUpdate: (Item) -> Unit,
+    onDismiss: () -> Unit
+    ) {
 
     val focusRequester = remember { FocusRequester() }
     val windowInfo = LocalWindowInfo.current
 
-    var inputTitle by remember {mutableStateOf("")}
-    var inputCount by remember {mutableStateOf("")}
-    var inputDescription by remember {mutableStateOf("")}
-    var inputTotal: String? by remember {mutableStateOf("")}
-    var newTotal: Int? by remember {mutableStateOf(null)}
+    // Use the current values if you are editing
+    var inputTitle by remember {mutableStateOf(if (isEditing) progressList!!.title else "")}
+    var inputCount by remember {mutableStateOf(if (isEditing) progressList!!.progress.toString() else "")}
+    var inputDescription by remember { mutableStateOf(if (isEditing) progressList!!.description else "")}
+    var inputTotal: String? by remember { mutableStateOf(if (isEditing) progressList!!.total?.toString() ?: "" else "") }
 
-    countWarning = "Field cannot be empty"
+    var newTotal: Int? by remember { mutableStateOf(null) }
+
+    countWarning = if (isEditing) "" else "Field cannot be empty"
 
     fun resetValues() {
         inputTitle = ""
@@ -72,8 +82,12 @@ fun InputDialog(progressViewModel: ProgressViewModel) {
 
     Dialog(
         onDismissRequest = {
-            showDialog = false
-            resetValues()
+            if (isEditing) {
+                onDismiss()
+            } else {
+                showDialog = false
+                resetValues()
+            }
         }) {
         Surface(
             modifier = Modifier
@@ -86,7 +100,7 @@ fun InputDialog(progressViewModel: ProgressViewModel) {
                     .padding(16.dp)
             ) {
                 Text(
-                    text = "Add Progress",
+                    text = if (isEditing) "Edit Progress" else "Add Progress",
                     style = MaterialTheme.typography.displaySmall
                 )
                 Spacer(modifier = Modifier.height(10.dp))
@@ -183,7 +197,14 @@ fun InputDialog(progressViewModel: ProgressViewModel) {
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End
                 ) {
-                    TextButton(onClick = {showDialog = false}) {
+                    TextButton(onClick = {
+                        if (isEditing) {
+                            onDismiss()
+                        } else {
+                            showDialog = false
+                            resetValues()
+                        }
+                    }) {
                         Text("Dismiss")
                     }
                     TextButton(
@@ -192,18 +213,28 @@ fun InputDialog(progressViewModel: ProgressViewModel) {
                                 !(inputCount.isEmpty()) &&
                                 (newTotal?.let { it >= inputCount.toInt() } ?: true),
                         onClick = {
-                            val newItem = Item(
-                                title = inputTitle,
-                                description = inputDescription,
-                                progress = inputCount.toInt(),
-                                total = newTotal
-                            )
-                            progressViewModel.addItem(newItem)
-
-                            showDialog = false
-                            resetValues()
+                            if (isEditing) {
+                                val newItem = progressList!!.copy(
+                                    title = inputTitle,
+                                    description = inputDescription,
+                                    progress = inputCount.toInt(),
+                                    total = if (inputTotal != progressList.total.toString()) newTotal else progressList.total
+                                )
+                                onUpdate(newItem)
+                                onDismiss()
+                            } else {
+                                val newItem = Item(
+                                    title = inputTitle,
+                                    description = inputDescription,
+                                    progress = inputCount.toInt(),
+                                    total = newTotal
+                                )
+                                progressViewModel.addItem(newItem)
+                                showDialog = false
+                                resetValues()
+                            }
                         }) {
-                        Text("Confirm")
+                        Text(if (isEditing) "Update" else "Confirm")
                     }
                 }
             }

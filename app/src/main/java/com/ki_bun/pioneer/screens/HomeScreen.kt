@@ -29,10 +29,14 @@ fun HomeScreen(progressViewModel: ProgressViewModel) {
 
     val progressList by progressViewModel.progressList.collectAsState()
     var selectedItem by remember { mutableStateOf<Item?>(null) }
-    var showEditDialog by remember { mutableStateOf(false) }
 
     if (showDialog) {
-        InputDialog(progressViewModel = progressViewModel)
+        InputDialog(
+            progressViewModel = progressViewModel,
+            progressList = null,
+            onUpdate = {},
+            onDismiss = {}
+        )
     }
 
     Scaffold(
@@ -60,7 +64,7 @@ fun HomeScreen(progressViewModel: ProgressViewModel) {
                     },
                     onEdit = {
                         selectedItem = item
-                        showEditDialog = true
+                        isEditing = true
                     },
                     progressViewModel = progressViewModel
                 )
@@ -69,16 +73,17 @@ fun HomeScreen(progressViewModel: ProgressViewModel) {
                 Spacer(modifier = Modifier.height(100.dp))
             }
         }
-        if (showEditDialog && selectedItem != null) {
+        if (isEditing && selectedItem != null) {
             selectedItem?.let { item ->
-                EditDialog(
+                InputDialog(
+                    progressViewModel = progressViewModel,
                     progressList = item,
                     onUpdate = { newItem ->
                         progressViewModel.updateItem(newItem)
-                        showEditDialog = false
+                        isEditing = false
                     },
                     onDismiss = {
-                        showEditDialog = false
+                        isEditing = false
                     }
                 )
             }
