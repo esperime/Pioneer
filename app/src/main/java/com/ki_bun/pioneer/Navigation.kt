@@ -59,11 +59,11 @@ fun MyAppNavHost(progressViewModel: ProgressViewModel, themeMode: ThemeMode, onT
                                             MaterialTheme.colorScheme.secondaryContainer
                                         } else Color.Transparent, shape = CircleShape
                                     )
-                                    .width(60.dp)
-                                    .height(35.dp)
+                                    .width(80.dp)
+                                    .height(40.dp)
                             ) {
                                 IconButton(
-                                    modifier = Modifier.width(60.dp),
+                                    modifier = Modifier.width(80.dp),
                                     onClick = {
                                         selectedIndex = 0
                                         navController.navigate("homescreen")
@@ -92,11 +92,11 @@ fun MyAppNavHost(progressViewModel: ProgressViewModel, themeMode: ThemeMode, onT
                                             MaterialTheme.colorScheme.secondaryContainer
                                         } else Color.Transparent, shape = CircleShape
                                     )
-                                    .width(60.dp)
-                                    .height(35.dp)
+                                    .width(80.dp)
+                                    .height(40.dp)
                             ) {
                                 IconButton(
-                                    modifier = Modifier.width(60.dp),
+                                    modifier = Modifier.width(80.dp),
                                     onClick = {
                                         selectedIndex = 1
                                         navController.navigate("settings")
