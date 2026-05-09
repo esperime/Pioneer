@@ -1,10 +1,11 @@
 package com.ki_bun.pioneer
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -12,7 +13,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -51,23 +51,32 @@ fun MyAppNavHost(progressViewModel: ProgressViewModel, themeMode: ThemeMode, onT
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceEvenly,
                     ) {
-                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Box(
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            Column(
                                 modifier = Modifier
-                                    .background(
-                                        color = if (selectedIndex == 0) {
-                                            MaterialTheme.colorScheme.secondaryContainer
-                                        } else Color.Transparent, shape = CircleShape
-                                    )
-                                    .width(80.dp)
-                                    .height(40.dp)
+                                    .clickable(
+                                        onClick = {
+                                            selectedIndex = 0
+                                            navController.navigate("homescreen")
+                                        }
+                                    ).fillMaxHeight().padding(horizontal = 20.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center
                             ) {
-                                IconButton(
-                                    modifier = Modifier.width(80.dp),
-                                    onClick = {
-                                        selectedIndex = 0
-                                        navController.navigate("homescreen")
-                                    }
+                                Column(
+                                    modifier = Modifier
+                                        .background(
+                                            color = if (selectedIndex == 0) {
+                                                MaterialTheme.colorScheme.secondaryContainer
+                                            } else Color.Transparent, shape = CircleShape
+                                        )
+                                        .width(80.dp)
+                                        .height(40.dp),
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    verticalArrangement = Arrangement.Center
                                 ) {
                                     Icon(
                                         painter = if (selectedIndex == 0) {
@@ -78,29 +87,36 @@ fun MyAppNavHost(progressViewModel: ProgressViewModel, themeMode: ThemeMode, onT
                                         contentDescription = "Home"
                                     )
                                 }
+                                Text(
+                                    text = "Home",
+                                    fontSize = 12.sp
+                                )
                             }
-                            Text(
-                                text = "Home",
-                                fontSize = 12.sp
-                            )
                         }
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Box(
+                            Column(
                                 modifier = Modifier
-                                    .background(
-                                        color = if (selectedIndex == 1) {
-                                            MaterialTheme.colorScheme.secondaryContainer
-                                        } else Color.Transparent, shape = CircleShape
-                                    )
-                                    .width(80.dp)
-                                    .height(40.dp)
+                                    .clickable(
+                                        onClick = {
+                                            selectedIndex = 1
+                                            navController.navigate("settings")
+                                        }
+                                    ).fillMaxHeight()
+                                    .padding(horizontal = 20.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center
                             ) {
-                                IconButton(
-                                    modifier = Modifier.width(80.dp),
-                                    onClick = {
-                                        selectedIndex = 1
-                                        navController.navigate("settings")
-                                    }
+                                Column(
+                                    modifier = Modifier
+                                        .background(
+                                            color = if (selectedIndex == 1) {
+                                                MaterialTheme.colorScheme.secondaryContainer
+                                            } else Color.Transparent, shape = CircleShape
+                                        )
+                                        .width(80.dp)
+                                        .height(40.dp),
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    verticalArrangement = Arrangement.Center
                                 ) {
                                     Icon(
                                         painter = if (selectedIndex == 1) {
@@ -111,11 +127,12 @@ fun MyAppNavHost(progressViewModel: ProgressViewModel, themeMode: ThemeMode, onT
                                         contentDescription = "Settings"
                                     )
                                 }
+                                Text(
+                                    text = "Settings",
+                                    fontSize = 12.sp
+                                )
                             }
-                            Text(
-                                text = "Settings",
-                                fontSize = 12.sp
-                            )
+
                         }
                     }
                 }
