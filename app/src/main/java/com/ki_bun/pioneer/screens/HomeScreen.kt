@@ -1,6 +1,7 @@
 package com.ki_bun.pioneer.screens
 
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -40,6 +41,7 @@ fun HomeScreen(progressViewModel: ProgressViewModel) {
     }
 
     Scaffold(
+        contentWindowInsets = WindowInsets(0),
         floatingActionButton = {
             FloatingActionButton(onClick = { showDialog = true },
                 modifier = Modifier.size(80.dp)
