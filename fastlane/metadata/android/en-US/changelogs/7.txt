@@ -1,0 +1,8 @@
+### Major update!
+
+- Display optional image and tags
+- Redesign input screen
+- UI changes in homescreen
+- Bug fixes
+
+More info at: https://github.com/ki-bun/Pioneer/releases
