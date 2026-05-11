@@ -2,7 +2,7 @@ Pioneer is an open source tool to keep track of progress in an efficient way. Wh
 
 It is not just a tracker for watchlists, you can use it as a counter in general since it is optional to specify a maximum value, and also to keep track of a goal, for example, "I am aiming to finish 3 tasks today". 
 
-<b>Features:</b>
+Features:
 
 - Material 3 dynamic theme
 - Local and offline progress tracking, no accounts or internet connection required
@@ -10,5 +10,6 @@ It is not just a tracker for watchlists, you can use it as a counter in general 
 - Privacy focused progress tracking app with no data collection, analytics, and telemetery
 - Optional description and maximum value
 - Import and export to CSV
+- Display tags and image
 
 Pioneer is a free and open source project licensed under GPL v3, view the source code at: https://github.com/ki-bun/Pioneer

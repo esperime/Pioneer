@@ -16,13 +16,13 @@ It is not just a tracker for watchlists, you can use it as a counter in general 
 - **Design**
 	- Material 3 dynamic theme
 	- Vertical card-based view
+	- Display images (selected from storage)
+	- Display tags
 - **Functionality**
-	- Support for optional maximum value if you are uncertain about its total
+	- Support for optional maximum value
 	- Option to edit and delete progress
- 	- Optional description
-	- Input error handling 
+ 	- Optional description 
 	- Import and export to CSV
-	- Option to change app theme
 - **Privacy**
 	- 100% offline, no internet connection required
 	- No sign up or account needed
