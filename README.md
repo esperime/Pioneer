@@ -30,24 +30,11 @@ It is not just a tracker for watchlists, you can use it as a counter in general 
  
 # 📸 Screenshots
 
-<h2 align="center">Light theme ☀︎</h2>
-
-<div align="center">
-	
-| Home screen | Add dialog | Settings screen |
-| --- | --- | --- |
-| <img width=200 alt="screenshot_1" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_1.png"> | <img width=200 alt="screenshot_3" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_3.png"> | <img width=200 alt="screenshot_5" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_5.png">
-
-</div>
-
-<h2 align="center">Dark theme ⏾</h2>
-
-<div align="center">
-
-| Home screen | Add dialog | Settings screen |
-| --- | --- | --- |
-| <img width=200 alt="screenshot_2" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_2.png"> | <img width=200 alt="screenshot_4" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_4.png"> | <img width=200 alt="screenshot_6" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_6.png">
-
-</div>
+<p>
+<img width="200" alt="screenshot_1" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_1.png">
+<img width="200" alt="screenshot_2" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_2.png">
+<img width="200" alt="screenshot_3" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_3.png">
+<img width="200" alt="screenshot_4" src="fastlane/metadata/android/en-US/images/phoneScreenshots/screenshot_4.png">
+</p>
 
 **Note**: The colors vary depending on device's system colors for Android 12 and newer.
