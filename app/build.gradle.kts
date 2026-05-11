@@ -98,4 +98,5 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation("androidx.datastore:datastore-preferences:1.2.1")
     implementation("com.opencsv:opencsv:5.12.0")
+    implementation("io.coil-kt.coil3:coil-compose:3.4.0")
 }
