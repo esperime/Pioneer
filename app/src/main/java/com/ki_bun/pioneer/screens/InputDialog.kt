@@ -217,8 +217,7 @@ fun InputDialog(
                         }) {
                         Icon(painterResource(
                             id = R.drawable.send_24px),
-                            contentDescription = "Enter",
-                            tint = MaterialTheme.colorScheme.primary
+                            contentDescription = "Enter"
                         )
                     }
                 }
