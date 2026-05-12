@@ -20,5 +20,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Universal Progress Tracker"
+rootProject.name = "Pioneer"
 include(":app")
