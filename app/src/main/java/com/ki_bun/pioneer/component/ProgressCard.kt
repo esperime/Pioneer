@@ -152,11 +152,14 @@ fun ProgressCard(
                     )
                     Spacer(modifier = Modifier.height(20.dp))
                     if (progressList.total != null) {
-                        val indicator = updatedProgress / newTotal.toFloat()
-                        LinearProgressIndicator(
-                            modifier = Modifier.fillMaxWidth(),
-                            progress = { indicator }
-                        )
+                        val indicator = progressList.progress / newTotal.toFloat()
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(text = "${(indicator * 100).toInt()} %", fontSize = 14.sp)
+                            LinearProgressIndicator(
+                                modifier = Modifier.padding(start = 5.dp).fillMaxWidth(),
+                                progress = { indicator }
+                            )
+                        }
                     }
                     Spacer(modifier = Modifier.height(20.dp))
                         FlowRow {
