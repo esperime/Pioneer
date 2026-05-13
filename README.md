@@ -4,9 +4,9 @@
 <h1 align="center">Pioneer</h1>
 
 <p align="center">
-<img src="https://img.shields.io/badge/license-%20%20GNU%20GPLv3%20-f6d2c0?style=flat-square">
-<img alt="GitHub Release" src="https://img.shields.io/github/v/release/ki-bun/Pioneer?style=flat-square&logo=github&color=f6d2c0">
-<img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/ki-bun/Pioneer/total?style=flat-square&logo=github&color=f6d2c0">
+<img src="https://img.shields.io/badge/license-%20%20GNU%20GPLv3%20-f6d2c0?style=for-the-badge&logo=GPLv3&labelColor=black">
+<img alt="GitHub Release" src="https://img.shields.io/github/v/release/ki-bun/Pioneer?style=for-the-badge&logo=github&color=f6d2c0&labelColor=black">
+<img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/ki-bun/Pioneer/total?style=for-the-badge&logo=github&color=f6d2c0&labelColor=black">
 </p>
 
 <b>Pioneer</b> is a free and open source tool to keep track of progress in an efficient way. Whether you are reading a book, .pdf, .epub, watching playlists, anime episodes, manga chapters, or anything else, Pioneer will act as one inventory to manage them, without relying on different online services.
