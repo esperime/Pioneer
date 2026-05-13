@@ -17,7 +17,9 @@ fun parseCSV(csvText: String): List<Item> {
                     title = cols[0],
                     description = cols.getOrNull(1) ?: "",
                     progress = cols.getOrNull(2)?.toIntOrNull() ?: 0,
-                    total = cols.getOrNull(3)?.toIntOrNull()
+                    total = cols.getOrNull(3)?.toIntOrNull(),
+                    tags = if (cols.getOrNull(4) != null) cols.getOrNull(4)!!.split(",") else emptyList(),
+                    unit = cols.getOrNull(5) ?: ""
                 )
                 items.add(item)
             } catch (e: Exception) {
