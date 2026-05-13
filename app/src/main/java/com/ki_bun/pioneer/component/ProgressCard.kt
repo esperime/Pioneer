@@ -150,9 +150,9 @@ fun ProgressCard(
                         fontSize = 15.sp,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
-                    Spacer(modifier = Modifier.height(20.dp))
                     if (progressList.total != null) {
                         val indicator = progressList.progress / newTotal.toFloat()
+                        Spacer(modifier = Modifier.height(10.dp))
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Text(text = "${(indicator * 100).toInt()} %", fontSize = 14.sp)
                             LinearProgressIndicator(
@@ -160,8 +160,8 @@ fun ProgressCard(
                                 progress = { indicator }
                             )
                         }
+                        Spacer(modifier = Modifier.height(10.dp))
                     }
-                    Spacer(modifier = Modifier.height(20.dp))
                         FlowRow {
                             progressList.tags.forEach { tag ->
                                 AssistChip(
