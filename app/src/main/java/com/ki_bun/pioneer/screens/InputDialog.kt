@@ -58,7 +58,6 @@ import com.ki_bun.pioneer.util.isNumeric
 import com.ki_bun.pioneer.util.totalWarning
 import com.ki_bun.pioneer.util.validateCount
 import com.ki_bun.pioneer.util.validateTotal
-import com.ki_bun.pioneer.viewmodel.ProgressViewModel
 import kotlinx.coroutines.flow.filter
 import java.io.File
 import java.io.FileOutputStream
@@ -75,7 +74,6 @@ var isEditing by mutableStateOf(false)
 
 @Composable
 fun InputDialog(
-    progressViewModel: ProgressViewModel,
     progressList: Item?,
     onUpdate: (Item) -> Unit,
     onDismiss: () -> Unit
@@ -213,8 +211,7 @@ fun InputDialog(
                                     imagePath = inputImage,
                                     unit = inputUnit
                                 )
-                                progressViewModel.addItem(newItem)
-                                showDialog = false
+                                onUpdate(newItem)
                                 resetValues()
                             }
                         }) {

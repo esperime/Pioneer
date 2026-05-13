@@ -33,9 +33,11 @@ fun HomeScreen(progressViewModel: ProgressViewModel) {
 
     if (showDialog) {
         InputDialog(
-            progressViewModel = progressViewModel,
             progressList = null,
-            onUpdate = {},
+            onUpdate = { newItem ->
+                progressViewModel.addItem(newItem)
+                showDialog = false
+            },
             onDismiss = {}
         )
     }
@@ -78,7 +80,6 @@ fun HomeScreen(progressViewModel: ProgressViewModel) {
         if (isEditing && selectedItem != null) {
             selectedItem?.let { item ->
                 InputDialog(
-                    progressViewModel = progressViewModel,
                     progressList = item,
                     onUpdate = { newItem ->
                         progressViewModel.updateItem(newItem)

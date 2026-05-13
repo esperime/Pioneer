@@ -26,7 +26,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -57,7 +56,7 @@ fun ProgressCard(
     progressViewModel: ProgressViewModel
 ) {
     var expanded by remember { mutableStateOf(false) }
-    var updatedProgress by remember { mutableIntStateOf(progressList.progress) }
+    var updatedProgress = progressList.progress
     val newTotal = progressList.total
     val totalString = newTotal ?: nullToString(newTotal)
 
