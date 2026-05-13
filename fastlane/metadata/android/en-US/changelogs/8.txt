@@ -1,0 +1,7 @@
+- Fix confirm button behavior
+- Fix splash screen background theme behavior
+- Display percentage beside progress indicator
+- Add option to specify a unit
+- Include tags and unit in .csv backups
+- Add .csv backup notice
+- Fix add and subtract button bug
