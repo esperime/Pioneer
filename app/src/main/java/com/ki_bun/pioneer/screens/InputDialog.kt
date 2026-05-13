@@ -374,8 +374,6 @@ fun InputDialog(
                                 )
                             }
                         }
-
-
                 Text(text = "Description (Optional):", fontSize = 12.sp)
                 OutlinedTextField(
                     value = inputDescription,
@@ -398,6 +396,7 @@ fun InputDialog(
                     placeholder = { Text(text = "Enter tags separated by commas") },
                     modifier = Modifier.fillMaxWidth()
                 )
+                Spacer(modifier = Modifier.height(20.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceEvenly
