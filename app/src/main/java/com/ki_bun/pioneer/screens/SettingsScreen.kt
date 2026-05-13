@@ -155,6 +155,7 @@ fun SettingsScreen(onThemeModeChange: (ThemeMode) -> Unit, themeMode: ThemeMode,
                 )
             }
         }
+        Text(text = "⚠ Images are not included in .csv backups", fontSize = 14.sp, modifier = Modifier.offset(x = 30.dp).padding(vertical = 15.dp))
         Text(
             text = "Links",
             color = MaterialTheme.colorScheme.primary,
