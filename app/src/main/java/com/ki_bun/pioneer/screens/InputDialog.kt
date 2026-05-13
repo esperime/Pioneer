@@ -96,6 +96,7 @@ fun InputDialog(
     }
     var inputTags by remember { mutableStateOf(if (isEditing) progressList!!.tags.joinToString(",") else "") }
     var inputImage by remember { mutableStateOf(if (isEditing) progressList!!.imagePath else null) }
+    var inputUnit by remember {mutableStateOf(if (isEditing) progressList!!.unit else "")}
 
     var newTotal: Int? by remember { mutableStateOf(null) }
 
@@ -196,7 +197,8 @@ fun InputDialog(
                                     total = if (inputTotal != progressList.total.toString()) newTotal else progressList.total,
                                     tags = inputTags.split(",").map { it.trim() }
                                         .filter { it.isNotEmpty() },
-                                    imagePath = inputImage
+                                    imagePath = inputImage,
+                                    unit = inputUnit
                                 )
                                 onUpdate(newItem)
                                 onDismiss()
@@ -208,7 +210,8 @@ fun InputDialog(
                                     total = newTotal,
                                     tags = inputTags.split(",").map { it.trim() }
                                         .filter { it.isNotEmpty() },
-                                    imagePath = inputImage
+                                    imagePath = inputImage,
+                                    unit = inputUnit
                                 )
                                 progressViewModel.addItem(newItem)
                                 showDialog = false
@@ -398,6 +401,24 @@ fun InputDialog(
                     placeholder = { Text(text = "Enter tags separated by commas") },
                     modifier = Modifier.fillMaxWidth()
                 )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    Column {
+                        Text(text = "Unit (Optional):", fontSize = 12.sp)
+                        OutlinedTextField(
+                            modifier = Modifier.width(100.dp),
+                            placeholder = { Text(text = "ep, ch, ...") },
+                            value = inputUnit,
+                            onValueChange = { newText ->
+                                if (newText.length <= 5) {
+                                    inputUnit = newText
+                                }
+                            }
+                        )
+                    }
+                }
             }
         }
         LaunchedEffect(windowInfo) {

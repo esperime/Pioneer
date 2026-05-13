@@ -199,7 +199,7 @@ fun ProgressCard(
                                 )
                             }
                             Text(
-                                text = "${progressList.progress} / $totalString",
+                                text = "${progressList.unit} ${progressList.progress} / $totalString",
                                 modifier = Modifier.padding(start = 10.dp, end = 10.dp)
                             )
                             Button(

@@ -12,7 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(
     entities = [Item::class],
-    version = 2,
+    version = 3,
     exportSchema = true
 )
 @TypeConverters(Converters::class)
@@ -26,7 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(context.applicationContext,
                     AppDatabase::class.java,
                     "app_database")
-                    .addMigrations(MIGRATION_1_2)
+                    .addMigrations(MIGRATION_1_2,MIGRATION_2_3)
                     .build()
                 INSTANCE = instance
                 instance
@@ -39,5 +39,11 @@ val MIGRATION_1_2 = object : Migration(1,2) {
     override fun migrate(db: SupportSQLiteDatabase) {
         db.execSQL("ALTER TABLE items ADD COLUMN tags TEXT NOT NULL DEFAULT ''")
         db.execSQL("ALTER TABLE items ADD COLUMN imagePath TEXT")
+    }
+}
+
+val MIGRATION_2_3 = object : Migration(2,3) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("ALTER TABLE items ADD COLUMN unit TEXT NOT NULL DEFAULT ''")
     }
 }

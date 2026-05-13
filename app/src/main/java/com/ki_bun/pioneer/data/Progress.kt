@@ -14,7 +14,8 @@ data class Item(
     var progress: Int,
     val total: Int?,
     @ColumnInfo(defaultValue = "") val tags: List<String> = emptyList(),
-    val imagePath: String? = null
+    val imagePath: String? = null,
+    val unit: String
 )
 
 class Converters {
