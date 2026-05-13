@@ -2,4 +2,8 @@
 <resources>
 
     <style name="Theme.Pioneer" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Splash.Theme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_bg</item>
+        <item name="postSplashScreenTheme">@style/Theme.Pioneer</item>
+    </style>
 </resources>

@@ -10,6 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.ki_bun.pioneer.data.AppDatabase
 import com.ki_bun.pioneer.data.ItemDao
@@ -31,11 +32,16 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
+        var isThemeLoaded = false
+        splashScreen.setKeepOnScreenCondition {
+            !isThemeLoaded
+        }
         enableEdgeToEdge()
         setContent {
             var themeMode by remember { mutableStateOf(ThemeMode.AUTO) }
-            var isThemeLoaded by remember { mutableStateOf(false) }
+
 
             LaunchedEffect(Unit) {
                 lifecycleScope.launch {
@@ -46,8 +52,6 @@ class MainActivity : ComponentActivity() {
                 }
             }
 
-            // Load selected theme first before loading the main application
-            if (isThemeLoaded) {
                 PioneerTheme(themeMode = themeMode) {
                     MyAppNavHost(progressViewModel, themeMode = themeMode, onThemeModeChange = { selectedTheme ->
                         themeMode = selectedTheme
@@ -56,7 +60,6 @@ class MainActivity : ComponentActivity() {
                         }
                     })
                 }
-            }
         }
     }
 }
