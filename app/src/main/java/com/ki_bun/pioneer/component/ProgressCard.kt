@@ -35,10 +35,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withLink
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
@@ -59,6 +63,7 @@ fun ProgressCard(
     var updatedProgress = progressList.progress
     val newTotal = progressList.total
     val totalString = newTotal ?: nullToString(newTotal)
+    val uriHandler = LocalUriHandler.current
 
     Column(
         modifier = Modifier.fillMaxWidth(),
@@ -142,13 +147,44 @@ fun ProgressCard(
                         style = if (updatedProgress == progressList.total) TextStyle(textDecoration = TextDecoration.LineThrough) else TextStyle()
                     )
                     Spacer(modifier = Modifier.height(4.dp))
+
+                    // Annotate website urls enclosed in <>
+                        val annotatedString = buildAnnotatedString {
+                            val str = progressList.description
+                            val regex = Regex("[<＜].*?\\..*?[>＞]") // Allow either unicode or ascii characters of < and >
+                            val https = Regex("^https://")
+                            var lastIndex = 0
+                            if (regex.containsMatchIn(str)) {
+                                regex.findAll(str).forEach { link ->
+                                    val url = link.value.drop(1).dropLast(1)
+                                    append(str.substring(lastIndex, link.range.first))
+                                    withLink(LinkAnnotation.Clickable(
+                                        tag = "URL",
+                                        linkInteractionListener = {
+                                            if (https.containsMatchIn(url)) {
+                                                uriHandler.openUri(url)
+                                            } else {
+                                                uriHandler.openUri("https:$url")
+                                            }
+                                        }
+                                    )) {
+                                        append(url)
+                                    }
+                                    lastIndex = link.range.last + 1
+                                }
+                                append(str.substring(lastIndex))
+                            } else {
+                                append(str)
+                            }
+                        }
                     Text(
-                        text = progressList.description,
+                        annotatedString,
                         modifier = Modifier.padding(end = 50.dp),
-                        style = if (updatedProgress == progressList.total) TextStyle(textDecoration = TextDecoration.LineThrough) else TextStyle(),
                         fontSize = 15.sp,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        style = if (updatedProgress == progressList.total) TextStyle(textDecoration = TextDecoration.LineThrough) else TextStyle()
                     )
+
                     if (progressList.total != null) {
                         val indicator = progressList.progress / newTotal.toFloat()
                         Spacer(modifier = Modifier.height(10.dp))
