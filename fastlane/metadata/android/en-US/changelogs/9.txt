@@ -1,0 +1,1 @@
+- Annotate web URLs in description by enclosing it in < and >
